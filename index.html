@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Prathamesh Shinde — Computer Science Engineering student at Sanjivani University specializing in AI/ML, data analysis, and full-stack web development." />
+  <title>Prathamesh Shinde — CSE Student & Developer</title>
+
+  <!-- Theme init: always dark by default unless user has explicitly picked light -->
+  <script>
+    (function () {
+      var stored = localStorage.getItem('pshinde-theme');
+      document.documentElement.setAttribute('data-theme', stored || 'dark');
+    })();
+  </script>
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Scroll progress rail -->
+  <div id="scroll-progress" class="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+  <!-- =========================================================
+       HEADER
+  ========================================================= -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#top" class="monogram" aria-label="Prathamesh Shinde — home">PS</a>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          id="btn-theme"
+          class="btn-theme"
+          aria-label="Toggle color theme"
+          type="button"
+        >
+          <!-- Moon icon (shown in dark mode) -->
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <!-- Sun icon (shown in light mode) -->
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-resume"
+          aria-label="Download resume (opens in new tab)"
+        >Resume ↗</a>
+
+        <button
+          id="btn-hamburger"
+          class="btn-hamburger"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          type="button"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu overlay -->
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main id="top">
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+    <section class="hero" aria-labelledby="hero-headline">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="container">
+
+        <p class="hero-eyebrow" id="hero-eyebrow" aria-label="Available for SDE / Data Analyst internships — Summer 2026">
+          <span class="eyebrow-dot"></span><span class="eyebrow-text"></span>
+        </p>
+
+        <h1 class="hero-headline" id="hero-headline">
+          <span class="hero-line"><span class="hero-line-inner">Prathamesh Shinde.</span></span>
+          <span class="hero-line"><span class="hero-line-inner">Building data-driven <span class="accent">software</span> that ships.</span></span>
+        </h1>
+
+        <p class="hero-sub reveal">
+          Computer Science Engineering student at Sanjivani University. I build ML systems, data analytics dashboards, and full-stack web apps — with a bias toward clarity, performance, and shipped code.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a href="#projects" class="btn-primary">View work →</a>
+          <a href="#contact" class="btn-ghost">Get in touch</a>
+        </div>
+
+        <p class="hero-meta reveal">
+          <span>Aurangabad, IN</span>
+          <span class="hero-meta-sep" aria-hidden="true">·</span>
+          <span>B.Tech CSE, 2024–2028</span>
+          <span class="hero-meta-sep" aria-hidden="true">·</span>
+          <span>GPA 8.2 / 10</span>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ABOUT
+    ========================================================= -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <span class="section-label reveal">01 / About</span>
+
+        <div class="about-grid">
+          <div class="about-prose">
+            <p class="reveal">
+              I'm a second-year Computer Science Engineering student focused on the intersection of applied ML and data analysis. My work spans CNN-based computer vision, Python automation, and front-end engineering — but the throughline is always the same: turn raw data into something a person can actually use to make a decision.
+            </p>
+            <p class="reveal">
+              I've led a six-person team building an AI plant-disease detection system, shipped a GPT-4 voice assistant, and recently completed an end-to-end ATS resume analyzer. I care about clean architecture, honest documentation, and writing the kind of code I'd want to inherit.
+            </p>
+            <p class="reveal">
+              Outside of academics, I take on independent projects to stay sharp and contribute to open source when I can.
+            </p>
+          </div>
+
+          <div class="about-right">
+            <div class="about-photo reveal">
+              <div class="about-photo-frame">
+                <img
+                  src="photo.jpg"
+                  alt="Prathamesh Shinde"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div class="stat-strip reveal-group">
+            <div class="stat-block reveal">
+              <span class="stat-label">GPA</span>
+              <span class="stat-value" data-counter="8.2" data-suffix=" / 10">8.2 / 10</span>
+            </div>
+            <div class="stat-block reveal">
+              <span class="stat-label">Projects Shipped</span>
+              <span class="stat-value" data-counter="6" data-suffix="+">6+</span>
+            </div>
+            <div class="stat-block reveal">
+              <span class="stat-label">Hackathon Rank</span>
+              <span class="stat-value" data-counter="2" data-suffix="nd">2nd</span>
+            </div>
+            <div class="stat-block reveal">
+              <span class="stat-label">Certifications</span>
+              <span class="stat-value" data-counter="2" data-suffix="">2</span>
+            </div>
+          </div>
+          </div><!-- /.about-right -->
+        </div><!-- /.about-grid -->
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SKILLS
+    ========================================================= -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <span class="section-label reveal">02 / Skills</span>
+        <h2 id="skills-heading" class="sr-only">Skills</h2>
+
+        <div class="skills-list">
+
+          <div class="skill-row reveal">
+            <span class="skill-category">Languages</span>
+            <div class="pills" role="list">
+              <span class="pill" role="listitem">Python</span>
+              <span class="pill" role="listitem">Java</span>
+              <span class="pill" role="listitem">C++</span>
+              <span class="pill" role="listitem">JavaScript</span>
+              <span class="pill" role="listitem">SQL</span>
+              <span class="pill" role="listitem">TypeScript</span>
+            </div>
+          </div>
+
+          <div class="skill-row reveal">
+            <span class="skill-category">AI / ML</span>
+            <div class="pills" role="list">
+              <span class="pill" role="listitem">CNN</span>
+              <span class="pill" role="listitem">Computer Vision</span>
+              <span class="pill" role="listitem">OpenCV</span>
+              <span class="pill" role="listitem">Image Processing</span>
+              <span class="pill" role="listitem">OpenAI API</span>
+              <span class="pill" role="listitem">GPT-4</span>
+            </div>
+          </div>
+
+          <div class="skill-row reveal">
+            <span class="skill-category">Data & Analytics</span>
+            <div class="pills" role="list">
+              <span class="pill" role="listitem">Pandas</span>
+              <span class="pill" role="listitem">NumPy</span>
+              <span class="pill" role="listitem">Matplotlib</span>
+              <span class="pill" role="listitem">Seaborn</span>
+              <span class="pill" role="listitem">Excel (Pivots, VLOOKUP)</span>
+              <span class="pill" role="listitem">SQL</span>
+            </div>
+          </div>
+
+          <div class="skill-row reveal">
+            <span class="skill-category">Web</span>
+            <div class="pills" role="list">
+              <span class="pill" role="listitem">HTML5</span>
+              <span class="pill" role="listitem">CSS3</span>
+              <span class="pill" role="listitem">JavaScript (ES6+)</span>
+              <span class="pill" role="listitem">Streamlit</span>
+              <span class="pill" role="listitem">React</span>
+              <span class="pill" role="listitem">Responsive Design</span>
+            </div>
+          </div>
+
+          <div class="skill-row reveal">
+            <span class="skill-category">Tools</span>
+            <div class="pills" role="list">
+              <span class="pill" role="listitem">Git</span>
+              <span class="pill" role="listitem">VS Code</span>
+              <span class="pill" role="listitem">Google Colab</span>
+              <span class="pill" role="listitem">Jupyter</span>
+              <span class="pill" role="listitem">Postman</span>
+            </div>
+          </div>
+
+          <div class="skill-row reveal">
+            <span class="skill-category">Soft Skills</span>
+            <div class="pills" role="list">
+              <span class="pill" role="listitem">Team Leadership</span>
+              <span class="pill" role="listitem">Technical Writing</span>
+              <span class="pill" role="listitem">Cross-functional Coordination</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PROJECTS
+    ========================================================= -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <span class="section-label reveal">03 / Projects</span>
+        <h2 id="projects-heading" class="sr-only">Projects</h2>
+        <p class="projects-intro reveal">A selection of recent work. Full list on GitHub.</p>
+
+        <div class="projects-grid">
+
+          <!-- Project 01 -->
+          <article class="project-card reveal" aria-labelledby="proj01-title">
+            <div class="project-card-top">
+              <span class="project-number">Project 01</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 id="proj01-title">SkillMap AI</h3>
+            <p class="project-role">Solo project · Full-stack + AI</p>
+            <p class="project-desc">
+              An AI-powered resume analyzer that parses uploaded PDFs, scores ATS compatibility against any job description, and generates a skill-gap report with curated free learning resources. Built end-to-end — auth, PDF parsing, OpenAI integration, PostgreSQL persistence, and a dark luxury UI.
+            </p>
+            <div class="pills" role="list" aria-label="Technologies used">
+              <span class="pill" role="listitem">React</span>
+              <span class="pill" role="listitem">TypeScript</span>
+              <span class="pill" role="listitem">Node.js</span>
+              <span class="pill" role="listitem">Express</span>
+              <span class="pill" role="listitem">PostgreSQL</span>
+              <span class="pill" role="listitem">Prisma</span>
+              <span class="pill" role="listitem">OpenAI API</span>
+              <span class="pill" role="listitem">Tailwind</span>
+              <span class="pill" role="listitem">Framer Motion</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" aria-label="SkillMap AI on GitHub (opens link)">GitHub ↗</a>
+              <a href="#" class="project-link" aria-label="SkillMap AI live demo (opens link)">Live ↗</a>
+            </div>
+          </article>
+
+          <!-- Project 02 -->
+          <article class="project-card reveal" aria-labelledby="proj02-title">
+            <div class="project-card-top">
+              <span class="project-number">Project 02</span>
+              <span class="project-year">2025–Present</span>
+            </div>
+            <h3 id="proj02-title">KrushiAI</h3>
+            <p class="project-role">Team Lead · 6 members · Sanjivani University</p>
+            <p class="project-desc">
+              A CNN-based plant disease detector for pomegranate leaves. Built the full ML pipeline — dataset collection, OpenCV preprocessing, model training, accuracy iteration — and shipped a real-time Streamlit dashboard for stakeholder review. Led a six-person team across the project lifecycle.
+            </p>
+            <div class="pills" role="list" aria-label="Technologies used">
+              <span class="pill" role="listitem">Python</span>
+              <span class="pill" role="listitem">TensorFlow</span>
+              <span class="pill" role="listitem">OpenCV</span>
+              <span class="pill" role="listitem">CNN</span>
+              <span class="pill" role="listitem">Streamlit</span>
+              <span class="pill" role="listitem">Pandas</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" aria-label="KrushiAI on GitHub (opens link)">GitHub ↗</a>
+              <a href="#" class="project-link" aria-label="KrushiAI live demo (opens link)">Live ↗</a>
+            </div>
+          </article>
+
+          <!-- Project 03 -->
+          <article class="project-card reveal" aria-labelledby="proj03-title">
+            <div class="project-card-top">
+              <span class="project-number">Project 03</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 id="proj03-title">Inventory &amp; Sales Analytics Dashboard</h3>
+            <p class="project-role">Independent · Data analysis</p>
+            <p class="project-desc">
+              End-to-end analysis of a 10,000+ record e-commerce dataset to identify defect drivers and fulfillment bottlenecks. Performed root-cause analysis (top 3 drivers explained 68% of adjustments) and produced an automated pivot-ready Excel report mirroring real warehouse analytics workflows.
+            </p>
+            <div class="pills" role="list" aria-label="Technologies used">
+              <span class="pill" role="listitem">Python</span>
+              <span class="pill" role="listitem">Pandas</span>
+              <span class="pill" role="listitem">NumPy</span>
+              <span class="pill" role="listitem">Matplotlib</span>
+              <span class="pill" role="listitem">Seaborn</span>
+              <span class="pill" role="listitem">Excel</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" aria-label="Inventory Analytics on GitHub (opens link)">GitHub ↗</a>
+            </div>
+          </article>
+
+          <!-- Project 04 -->
+          <article class="project-card reveal" aria-labelledby="proj04-title">
+            <div class="project-card-top">
+              <span class="project-number">Project 04</span>
+              <span class="project-year">2025</span>
+            </div>
+            <h3 id="proj04-title">Jarvis AI Assistant</h3>
+            <p class="project-role">Solo project · Lead Developer</p>
+            <p class="project-desc">
+              A voice-activated assistant powered by GPT-4 for multi-turn task automation across Android and Desktop. Owned full lifecycle from requirements through release; integrates speech recognition, contextual memory, and tool-use orchestration.
+            </p>
+            <div class="pills" role="list" aria-label="Technologies used">
+              <span class="pill" role="listitem">Python</span>
+              <span class="pill" role="listitem">OpenAI API</span>
+              <span class="pill" role="listitem">Speech Recognition</span>
+              <span class="pill" role="listitem">Android</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" aria-label="Jarvis AI Assistant on GitHub (opens link)">GitHub ↗</a>
+            </div>
+          </article>
+
+          <!-- Project 05 -->
+          <article class="project-card reveal" aria-labelledby="proj05-title">
+            <div class="project-card-top">
+              <span class="project-number">Project 05</span>
+              <span class="project-year">2025</span>
+            </div>
+            <h3 id="proj05-title">E-commerce Platform</h3>
+            <p class="project-role">Independent · Front-end</p>
+            <p class="project-desc">
+              A dynamic e-commerce front-end with product listings, cart state management, and responsive layouts. Focused on clean component structure and predictable state.
+            </p>
+            <div class="pills" role="list" aria-label="Technologies used">
+              <span class="pill" role="listitem">JavaScript</span>
+              <span class="pill" role="listitem">HTML5</span>
+              <span class="pill" role="listitem">CSS3</span>
+              <span class="pill" role="listitem">Responsive Design</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" aria-label="E-commerce Platform on GitHub (opens link)">GitHub ↗</a>
+              <a href="#" class="project-link" aria-label="E-commerce Platform live demo (opens link)">Live ↗</a>
+            </div>
+          </article>
+
+          <!-- Project 06 -->
+          <article class="project-card reveal" aria-labelledby="proj06-title">
+            <div class="project-card-top">
+              <span class="project-number">Project 06</span>
+              <span class="project-year">2026</span>
+            </div>
+            <h3 id="proj06-title">Portfolio Website</h3>
+            <p class="project-role">Independent · Front-end</p>
+            <p class="project-desc">
+              This site. Vanilla HTML, CSS, and JavaScript — no frameworks, no build step. Designed around restraint: a single accent color, two type families, and one signature scroll interaction.
+            </p>
+            <div class="pills" role="list" aria-label="Technologies used">
+              <span class="pill" role="listitem">HTML5</span>
+              <span class="pill" role="listitem">CSS3</span>
+              <span class="pill" role="listitem">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link" aria-label="Portfolio Website on GitHub (opens link)">GitHub ↗</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         EXPERIENCE
+    ========================================================= -->
+    <section id="experience" aria-labelledby="experience-heading">
+      <div class="container">
+        <span class="section-label reveal">04 / Experience</span>
+        <h2 id="experience-heading" class="sr-only">Experience</h2>
+
+        <div class="timeline">
+
+          <div class="timeline-entry reveal">
+            <span class="timeline-date">2024 — Present</span>
+            <div>
+              <p class="timeline-role">Independent Developer</p>
+              <p class="timeline-context">Remote</p>
+              <ul class="timeline-bullets">
+                <li>Built and maintained Python projects, shipping working software against self-set milestones.</li>
+                <li>Produced documentation and UI designs for web and mobile platforms.</li>
+                <li>Contributed to open-source projects across distributed teams.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-entry reveal">
+            <span class="timeline-date">Dec 2025 — Present</span>
+            <div>
+              <p class="timeline-role">Team Lead, KrushiAI</p>
+              <p class="timeline-context">Sanjivani University</p>
+              <ul class="timeline-bullets">
+                <li>Led a six-person team across requirements, development, and delivery phases.</li>
+                <li>Owned the ML pipeline end-to-end and ran weekly progress check-ins.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-entry reveal">
+            <span class="timeline-date">Apr 2025 — May 2025</span>
+            <div>
+              <p class="timeline-role">Front-end Developer</p>
+              <p class="timeline-context">Independent</p>
+              <ul class="timeline-bullets">
+                <li>Shipped an e-commerce platform and a responsive portfolio site.</li>
+                <li>Focused on clean state management and accessible markup.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         EDUCATION & ACHIEVEMENTS
+    ========================================================= -->
+    <section id="education" aria-labelledby="education-heading">
+      <div class="container">
+        <span class="section-label reveal">05 / Education</span>
+        <h2 id="education-heading" class="sr-only">Education &amp; Achievements</h2>
+
+        <div class="edu-grid">
+
+          <!-- Education -->
+          <div class="reveal">
+            <p class="edu-group-label">Education</p>
+
+            <div class="edu-entry">
+              <p class="edu-degree">B.Tech, Computer Science &amp; Engineering</p>
+              <p class="edu-institution">Sanjivani University, Maharashtra</p>
+              <p class="edu-meta">2024–2028 (Expected) · GPA 8.2 / 10</p>
+            </div>
+
+            <div class="edu-entry">
+              <p class="edu-degree">Higher Secondary (Class XII)</p>
+              <p class="edu-institution">NPMHS (MHSB), Maharashtra</p>
+              <p class="edu-meta">2024 · 71.00%</p>
+            </div>
+          </div>
+
+          <!-- Achievements -->
+          <div class="reveal">
+            <p class="edu-group-label">Achievements &amp; Certifications</p>
+
+            <div class="achievement-list">
+
+              <div class="achievement-item">
+                <!-- Trophy icon -->
+                <svg class="achievement-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="8 21 12 17 16 21"/>
+                  <line x1="12" y1="17" x2="12" y2="11"/>
+                  <path d="M17 3H7l-1 5c0 3.31 2.69 6 6 6s6-2.69 6-6l-1-5z"/>
+                  <path d="M4 8H2v2a4 4 0 0 0 4 4"/>
+                  <path d="M20 8h2v2a4 4 0 0 1-4 4"/>
+                </svg>
+                <p class="achievement-text">
+                  <strong>2nd Place</strong> — University-level Web Development Hackathon
+                </p>
+              </div>
+
+              <div class="achievement-item">
+                <!-- Certificate icon -->
+                <svg class="achievement-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="8" r="6"/>
+                  <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                </svg>
+                <p class="achievement-text">
+                  <strong>The Joy of Computing using Python</strong> — NPTEL (With Distinction)
+                </p>
+              </div>
+
+              <div class="achievement-item">
+                <!-- Certificate icon -->
+                <svg class="achievement-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="8" r="6"/>
+                  <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                </svg>
+                <p class="achievement-text">
+                  <strong>Java Programming for Beginners</strong> — Simplilearn
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CONTACT
+    ========================================================= -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <span class="section-label reveal">06 / Contact</span>
+
+        <div class="contact-inner">
+          <h2 id="contact-heading" class="reveal">Let's build something.</h2>
+          <p class="contact-body reveal">
+            I'm currently open to internships, freelance work, and interesting collaborations. The fastest way to reach me is email — I reply within a day.
+          </p>
+          <a
+            href="mailto:prathameshshinde1224@gmail.com"
+            class="btn-email reveal"
+            aria-label="Send email to Prathamesh Shinde"
+          >
+            prathameshshinde1224@gmail.com →
+          </a>
+          <div class="contact-links reveal">
+            <a
+              href="https://www.linkedin.com/in/prathamesh-shinde-204055264"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-link"
+              aria-label="LinkedIn profile (opens in new tab)"
+            >LinkedIn ↗</a>
+            <span class="contact-sep" aria-hidden="true">·</span>
+            <a
+              href="https://github.com/PrathameshShinde24"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-link"
+              aria-label="GitHub profile (opens in new tab)"
+            >GitHub ↗</a>
+            <span class="contact-sep" aria-hidden="true">·</span>
+            <a
+              href="tel:+919665688400"
+              class="contact-link"
+              aria-label="Call +91 96656 88400"
+            >+91 96656 88400</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <span>© 2026 Prathamesh Shinde</span>
+      <span>Built with HTML, CSS, and care.</span>
+    </div>
+  </footer>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot"  aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
