@@ -73,18 +73,19 @@
   updateProgress();
 
   /* ------------------------------------------------------------------
-     Smooth scroll for anchor links
+     Smooth scroll for anchor links (only internal # links)
   ------------------------------------------------------------------ */
   document.addEventListener('click', function (e) {
-    const anchor = e.target.closest('a[href^="#"]');
+    const anchor = e.target.closest('a');
     if (!anchor) return;
-    const id = anchor.getAttribute('href');
-    if (id === '#') return;
-    const target = document.querySelector(id);
+    const href = anchor.getAttribute('href');
+    // Skip: no href, external links, or plain "#"
+    if (!href || !href.startsWith('#') || href === '#') return;
+    const target = document.querySelector(href);
     if (!target) return;
     e.preventDefault();
     target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
-    history.pushState(null, '', id);
+    history.pushState(null, '', href);
   });
 
   /* ------------------------------------------------------------------
