@@ -359,6 +359,19 @@
   }
 
   /* ------------------------------------------------------------------
+     Cursor spotlight on cards (sets --mx/--my for radial gradient)
+  ------------------------------------------------------------------ */
+  if (!reduceMotion) {
+    document.querySelectorAll('.project-card, .cert-card').forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------
      Magnetic button effect on .btn-primary
   ------------------------------------------------------------------ */
   if (!reduceMotion) {

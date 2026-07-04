@@ -726,6 +726,64 @@ section:first-of-type { border-top: none; }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Tech chips — pills with a logo */
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.tech-chip img {
+  width: 1rem; height: 1rem;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.tech-chip:hover img { transform: scale(1.2); }
+
+/* =============================================================================
+   TECH MARQUEE
+   ============================================================================= */
+.tech-marquee {
+  overflow: hidden;
+  margin-bottom: clamp(2.5rem, 5vh, 4rem);
+  padding-block: 1.5rem;
+  border-block: 1px solid var(--border);
+  /* fade edges */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.tech-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.tech-marquee:hover .tech-marquee-track { animation-play-state: paused; }
+
+.tech-marquee-track img {
+  width: clamp(2rem, 3vw, 2.75rem);
+  height: clamp(2rem, 3vw, 2.75rem);
+  flex-shrink: 0;
+  opacity: 0.75;
+  filter: grayscale(0.25);
+  transition: opacity var(--transition), filter var(--transition), transform var(--transition);
+}
+
+.tech-marquee-track img:hover {
+  opacity: 1;
+  filter: none;
+  transform: scale(1.18);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 /* =============================================================================
    PROJECTS SECTION
    ============================================================================= */
@@ -776,6 +834,25 @@ section:first-of-type { border-top: none; }
 }
 
 .project-card:hover::before { opacity: 1; }
+
+/* Cursor spotlight — --mx/--my set by JS */
+.project-card::after,
+.cert-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(125, 211, 252, 0.07),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.project-card:hover::after,
+.cert-card:hover::after { opacity: 1; }
 
 .project-card-top {
   display: flex;
@@ -841,7 +918,23 @@ section:first-of-type { border-top: none; }
 /* =============================================================================
    EXPERIENCE SECTION
    ============================================================================= */
-.timeline { display: flex; flex-direction: column; }
+.timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+/* Vertical rail */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 1px;
+  background: linear-gradient(180deg, var(--accent-line), var(--border) 60%, transparent);
+}
 
 .timeline-entry {
   display: grid;
@@ -849,6 +942,27 @@ section:first-of-type { border-top: none; }
   gap: 0.5rem;
   padding-block: 2rem;
   border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+/* Glowing dot on the rail */
+.timeline-entry::before {
+  content: '';
+  position: absolute;
+  left: calc(-1.75rem - 4px);
+  top: 2.55rem;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background-color: var(--bg);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 10px var(--accent-line);
+  transition: box-shadow var(--transition), background-color var(--transition);
+}
+
+.timeline-entry:first-child::before { top: 0.55rem; }
+.timeline-entry:hover::before {
+  background-color: var(--accent);
+  box-shadow: 0 0 16px var(--accent);
 }
 
 .timeline-entry:first-child { padding-top: 0; }
@@ -942,37 +1056,86 @@ section:first-of-type { border-top: none; }
   color: var(--text-faint);
 }
 
-.achievement-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.achievement-item {
-  display: flex;
-  align-items: flex-start;
+/* Certification / achievement cards */
+.cert-grid {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 0.875rem;
-  padding: 1rem 1.25rem;
+}
+
+.cert-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.125rem 1.25rem;
   background-color: var(--bg-elev);
-  border-bottom: 1px solid var(--border);
-  transition: background-color var(--transition), padding-left var(--transition);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition), background-color var(--transition),
+              transform var(--transition), box-shadow var(--transition);
 }
 
-.achievement-item:last-child { border-bottom: none; }
-.achievement-item:hover { background-color: var(--surface); padding-left: 1.625rem; }
+.cert-card:hover {
+  border-color: var(--accent-line);
+  background-color: var(--surface);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
 
-.achievement-icon {
+.cert-icon-wrap {
   flex-shrink: 0;
-  width: 1.125rem; height: 1.125rem;
-  color: var(--text-faint);
-  margin-top: 0.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem; height: 2.75rem;
+  border-radius: 10px;
+  background-color: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  transition: background-color var(--transition), border-color var(--transition);
 }
 
-.achievement-text { font-size: 0.9375rem; color: var(--text-muted); line-height: 1.55; }
-.achievement-text strong { color: var(--text); font-weight: 600; }
+.cert-card:hover .cert-icon-wrap { border-color: var(--accent); }
+
+.cert-icon {
+  width: 1.25rem; height: 1.25rem;
+  color: var(--accent);
+}
+
+.cert-body { flex: 1; min-width: 0; }
+
+.cert-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--text);
+  line-height: 1.35;
+  margin-bottom: 0.2rem;
+}
+
+.cert-issuer {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.cert-tag {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.cert-card:hover .cert-tag { color: var(--accent); border-color: var(--accent-line); }
 
 /* =============================================================================
    CONTACT SECTION
@@ -1131,4 +1294,8 @@ section:first-of-type { border-top: none; }
   .btn-primary,
   .btn-ghost,
   .btn-email { transition: none; }
+
+  .tech-marquee-track { animation: none; flex-wrap: wrap; width: auto; }
+  .project-card::after,
+  .cert-card::after { display: none; }
 }
