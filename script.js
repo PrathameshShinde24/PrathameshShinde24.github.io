@@ -452,4 +452,18 @@
     }, { passive: true });
   }
 
+  /* ------------------------------------------------------------------
+     Back-to-top button
+  ------------------------------------------------------------------ */
+  const btnTop = document.getElementById('btn-top');
+  if (btnTop) {
+    window.addEventListener('scroll', function () {
+      btnTop.classList.toggle('show', window.scrollY > window.innerHeight * 0.8);
+    }, { passive: true });
+
+    btnTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  }
+
 })();

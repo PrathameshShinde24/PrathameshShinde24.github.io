@@ -58,6 +58,29 @@ body {
   cursor: none; /* hide default; custom cursor takes over */
 }
 
+/* Faint grid texture over the whole page */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(125, 211, 252, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 211, 252, 0.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 40%, transparent 100%);
+}
+
+[data-theme="light"] body::before {
+  background-image:
+    linear-gradient(rgba(2, 132, 199, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2, 132, 199, 0.04) 1px, transparent 1px);
+}
+
+main, .site-header, .site-footer { position: relative; z-index: 1; }
+
 /* restore pointer for touch/mobile */
 @media (hover: none) { body { cursor: auto; } }
 
@@ -177,6 +200,39 @@ section:first-of-type { border-top: none; }
   background-color: var(--accent);
   opacity: 0.5;
   flex-shrink: 0;
+}
+
+/* Big visible section titles */
+.section-title {
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-top: -1.5rem;
+  margin-bottom: clamp(2.5rem, 6vh, 4.5rem);
+  background: linear-gradient(180deg, var(--text) 60%, var(--text-muted));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animated gradient accent text */
+.accent-grad {
+  background: linear-gradient(90deg, #7DD3FC, #38BDF8, #A5B4FC, #7DD3FC);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: grad-slide 6s linear infinite;
+}
+
+[data-theme="light"] .accent-grad {
+  background-image: linear-gradient(90deg, #0284C7, #0369A1, #6366F1, #0284C7);
+  background-size: 300% 100%;
+}
+
+@keyframes grad-slide {
+  from { background-position: 0% 50%; }
+  to   { background-position: 300% 50%; }
 }
 
 /* =============================================================================
@@ -551,6 +607,102 @@ section:first-of-type { border-top: none; }
 }
 
 .hero-meta-sep { color: var(--border-hover); }
+
+/* Animated gradient on the hero accent word */
+.hero-headline .accent {
+  background: linear-gradient(90deg, #7DD3FC, #38BDF8, #A5B4FC, #7DD3FC);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: grad-slide 6s linear infinite;
+}
+
+[data-theme="light"] .hero-headline .accent {
+  background-image: linear-gradient(90deg, #0284C7, #0369A1, #6366F1, #0284C7);
+}
+
+/* Scroll hint — animated mouse at hero bottom */
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.6;
+  transition: opacity var(--transition);
+}
+
+.scroll-hint:hover { opacity: 1; }
+
+.scroll-hint-mouse {
+  display: block;
+  width: 22px; height: 34px;
+  border: 1.5px solid var(--text-muted);
+  border-radius: 12px;
+  position: relative;
+}
+
+.scroll-hint-dot {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  width: 3px; height: 7px;
+  margin-left: -1.5px;
+  border-radius: 2px;
+  background-color: var(--accent);
+  animation: scroll-dot 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes scroll-dot {
+  0%   { transform: translateY(0);    opacity: 1; }
+  70%  { transform: translateY(12px); opacity: 0; }
+  100% { transform: translateY(0);    opacity: 0; }
+}
+
+.scroll-hint-text {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* Back-to-top floating button */
+.btn-top {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem; height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid var(--accent-line);
+  background-color: color-mix(in srgb, var(--bg-elev) 85%, transparent);
+  backdrop-filter: blur(10px);
+  color: var(--accent);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease, border-color var(--transition),
+              background-color var(--transition), box-shadow var(--transition);
+}
+
+.btn-top.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+.btn-top:hover {
+  border-color: var(--accent);
+  background-color: var(--accent-soft);
+  box-shadow: 0 0 20px var(--accent-line);
+}
+
+.btn-top svg { width: 1.1rem; height: 1.1rem; }
 
 /* =============================================================================
    ABOUT SECTION
@@ -1140,8 +1292,18 @@ section:first-of-type { border-top: none; }
 /* =============================================================================
    CONTACT SECTION
    ============================================================================= */
-.contact-inner { max-width: 60ch; margin-inline: auto; text-align: center; }
-.contact-inner h2 { color: var(--text); margin-bottom: 1.25rem; }
+.contact-inner { max-width: 72ch; margin-inline: auto; text-align: center; }
+
+.contact-inner h2 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(180deg, var(--text) 55%, var(--text-muted));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .contact-body {
   color: var(--text-muted);
@@ -1151,32 +1313,27 @@ section:first-of-type { border-top: none; }
 }
 
 .btn-email {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.9rem 2rem;
-  border: 1px solid var(--border-hover);
-  background-color: var(--bg-elev);
-  color: var(--text);
+  display: inline-block;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1rem;
-  border-radius: 10px;
-  margin-bottom: 2rem;
-  transition: border-color var(--transition), color var(--transition),
-              background-color var(--transition), transform var(--transition);
+  font-size: clamp(1.125rem, 2.6vw, 1.875rem);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.35rem;
+  background-image: linear-gradient(90deg, var(--accent), #A5B4FC);
+  background-size: 100% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: color var(--transition), background-size var(--transition);
   overflow-wrap: break-word;
   word-break: break-word;
-  text-align: center;
-  width: 100%;
+  max-width: 100%;
 }
 
 .btn-email:hover {
-  border-color: var(--accent);
   color: var(--accent);
-  background-color: var(--accent-soft);
-  transform: translateY(-2px);
+  background-size: 100% 4px;
 }
 
 .btn-email:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -1234,14 +1391,17 @@ section:first-of-type { border-top: none; }
   border-width: 0;
 }
 
-/* Scroll reveal */
+/* Scroll reveal — blur + rise */
 .reveal {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transform: translateY(20px);
+  filter: blur(8px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); filter: blur(0); }
 
 /* =============================================================================
    MEDIA QUERIES
@@ -1281,7 +1441,11 @@ section:first-of-type { border-top: none; }
 
   .reveal,
   .hero-line-inner,
-  .pill { opacity: 1; transform: none; transition: none; animation: none; }
+  .pill { opacity: 1; transform: none; filter: none; transition: none; animation: none; }
+
+  .accent-grad,
+  .hero-headline .accent,
+  .scroll-hint-dot { animation: none; }
 
   .eyebrow-dot { animation: none; }
   .eyebrow-text::after { display: none; }
