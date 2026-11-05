@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" id="html-root">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Prathamesh Shinde — Computer Science Engineering student at Sanjivani University specializing in AI/ML, data analysis, and full-stack web development." />
-  <title>Prathamesh Shinde — CSE Student & Developer</title>
+  <meta name="description" content="Prathamesh Shinde — third-year Computer Science Engineering student at Sanjivani University building AI people can actually use: computer vision, LLMs & agentic AI, and full-stack apps." />
+  <meta name="theme-color" content="#05070D" />
+  <title>Prathamesh Shinde — AI/ML Engineer & Full-Stack Developer</title>
 
-  <!-- Theme init: always dark by default unless user has explicitly picked light -->
+  <!-- Theme init: dark by default unless the visitor picked light -->
   <script>
     (function () {
-      var stored = localStorage.getItem('pshinde-theme');
+      var stored = null;
+      try { stored = localStorage.getItem('pshinde-theme'); } catch (e) {}
       document.documentElement.setAttribute('data-theme', stored || 'dark');
+      document.documentElement.classList.add('js');
     })();
   </script>
 
-  <!-- Preconnect for fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet"
   />
 
@@ -26,82 +28,69 @@
 </head>
 <body>
 
-  <!-- Scroll progress rail -->
-  <div id="scroll-progress" class="scroll-progress" role="progressbar" aria-hidden="true"></div>
+  <!-- Shared icons -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></g></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></g></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></g></symbol>
+  </svg>
+
+  <!-- Background layers -->
+  <div class="bg-aurora" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 
   <!-- =========================================================
        HEADER
   ========================================================= -->
-  <header class="site-header" role="banner">
+  <header class="site-header">
     <div class="container header-inner">
-      <a href="#top" class="monogram" aria-label="Prathamesh Shinde — home">PS</a>
+      <a href="#top" class="brand" aria-label="Prathamesh Shinde — home">
+        <span class="brand-mark"><span class="brand-face"><img src="photo.jpg" alt="" width="36" height="36" /></span></span>
+        <span class="brand-text">prathamesh<span class="brand-dim">.shinde</span></span>
+      </a>
 
       <nav class="site-nav" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+        <a href="#about"><span>01</span>About</a>
+        <a href="#skills"><span>02</span>Stack</a>
+        <a href="#projects"><span>03</span>Projects</a>
+        <a href="#research"><span>04</span>Research</a>
+        <a href="#experience"><span>05</span>Experience</a>
+        <a href="#education"><span>06</span>Education</a>
+        <a href="#contact"><span>07</span>Contact</a>
       </nav>
 
       <div class="header-actions">
-        <button
-          id="btn-theme"
-          class="btn-theme"
-          aria-label="Toggle color theme"
-          type="button"
-        >
-          <!-- Moon icon (shown in dark mode) -->
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
-          <!-- Sun icon (shown in light mode) -->
-          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="5"/>
-            <line x1="12" y1="1" x2="12" y2="3"/>
-            <line x1="12" y1="21" x2="12" y2="23"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="1" y1="12" x2="3" y2="12"/>
-            <line x1="21" y1="12" x2="23" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-          </svg>
+        <button id="btn-theme" class="icon-btn" aria-label="Toggle color theme" type="button">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
         </button>
 
-        <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-resume"
-          aria-label="Download resume (opens in new tab)"
-        >Resume ↗</a>
+        <a href="Prathamesh_Shinde_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn-resume" aria-label="View CV (opens in new tab)">
+          CV <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
 
-        <button
-          id="btn-hamburger"
-          class="btn-hamburger"
-          aria-label="Open navigation menu"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-          type="button"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <line x1="3" y1="12" x2="21" y2="12"/>
-            <line x1="3" y1="18" x2="21" y2="18"/>
-          </svg>
+        <button id="btn-hamburger" class="icon-btn btn-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile menu overlay -->
   <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
+    <a href="#about"><span>01</span>About</a>
+    <a href="#skills"><span>02</span>Stack</a>
+    <a href="#projects"><span>03</span>Projects</a>
+    <a href="#research"><span>04</span>Research</a>
+    <a href="#experience"><span>05</span>Experience</a>
+    <a href="#education"><span>06</span>Education</a>
+    <a href="#contact"><span>07</span>Contact</a>
   </nav>
 
   <main id="top">
@@ -111,38 +100,58 @@
     ========================================================= -->
     <section class="hero" aria-labelledby="hero-headline">
       <canvas id="hero-canvas" aria-hidden="true"></canvas>
-      <div class="container">
+      <div class="hero-floor" aria-hidden="true"></div>
 
-        <p class="hero-eyebrow" id="hero-eyebrow" aria-label="Available for SDE / Data Analyst internships — Summer 2026">
-          <span class="eyebrow-dot"></span><span class="eyebrow-text"></span>
-        </p>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="status-chip" id="hero-eyebrow" aria-label="Open to AI/ML research and engineering internships">
+            <span class="status-dot"></span><span class="eyebrow-text">Open to AI/ML research &amp; engineering internships</span>
+          </p>
 
-        <h1 class="hero-headline" id="hero-headline">
-          <span class="hero-line"><span class="hero-line-inner">Prathamesh Shinde.</span></span>
-          <span class="hero-line"><span class="hero-line-inner">Building data-driven <span class="accent">software</span> that ships.</span></span>
-        </h1>
+          <h1 class="hero-headline" id="hero-headline">
+            <span class="hero-line"><span class="hero-line-inner">Prathamesh Shinde</span></span>
+            <span class="hero-line"><span class="hero-line-inner hero-line-sub">Building AI that people <span class="grad">actually use.</span></span></span>
+          </h1>
 
-        <p class="hero-sub reveal">
-          Computer Science Engineering student at Sanjivani University. I build ML systems, data analytics dashboards, and full-stack web apps — with a bias toward clarity, performance, and shipped code.
-        </p>
+          <p class="hero-sub reveal">
+            Third-year Computer Science Engineering student at Sanjivani University, working mainly in computer vision and large language models. First-author researcher, former LLM post-training intern at Ethara AI, and builder of three live full-stack AI apps.
+          </p>
 
-        <div class="hero-actions reveal">
-          <a href="#projects" class="btn-primary">View work →</a>
-          <a href="#contact" class="btn-ghost">Get in touch</a>
+          <div class="hero-actions reveal">
+            <a href="#projects" class="btn btn-primary">View projects <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="#contact" class="btn btn-ghost">Get in touch</a>
+          </div>
+
+          <ul class="hero-meta reveal" aria-label="Quick facts">
+            <li><span class="meta-k">LOC</span>Rahuri, Ahilyanagar</li>
+            <li><span class="meta-k">EDU</span>B.Tech CSE · 2024–2028</li>
+            <li><span class="meta-k">IST</span><span data-clock>--:--:--</span></li>
+          </ul>
         </div>
 
-        <p class="hero-meta reveal">
-          <span>Aurangabad, IN</span>
-          <span class="hero-meta-sep" aria-hidden="true">·</span>
-          <span>B.Tech CSE, 2024–2028</span>
-          <span class="hero-meta-sep" aria-hidden="true">·</span>
-          <span>GPA 8.2 / 10</span>
-        </p>
-
+        <!-- Terminal panel (decorative summary) -->
+        <div class="terminal panel hud reveal" aria-hidden="true">
+          <div class="terminal-bar">
+            <span class="t-dots"><i></i><i></i><i></i></span>
+            <span class="t-title">prathamesh@portfolio: ~</span>
+            <span class="t-live"><span class="live-dot"></span>online</span>
+          </div>
+          <div class="terminal-body" id="terminal-body">
+            <p class="t-row"><span class="t-prompt">~$</span> <span class="t-cmd" data-type>whoami</span></p>
+            <p class="t-out">3rd-year CSE · Sanjivani University · GPA 8.2</p>
+            <p class="t-row"><span class="t-prompt">~$</span> <span class="t-cmd" data-type>cat focus.txt</span></p>
+            <p class="t-out"><span class="t-key">computer_vision</span> · <span class="t-key">llms</span> · <span class="t-key">agentic_ai</span></p>
+            <p class="t-row"><span class="t-prompt">~$</span> <span class="t-cmd" data-type>ls ./live</span></p>
+            <p class="t-out">krushi-ai/  skillmap-ai/  paper-trail/</p>
+            <p class="t-row"><span class="t-prompt">~$</span> <span class="t-cmd" data-type>cat research.log</span></p>
+            <p class="t-out"><span class="t-ok">●</span> IC2NC 2026 — accepted <span class="t-dim">// first author</span></p>
+            <p class="t-row"><span class="t-prompt">~$</span> <span class="t-caret"></span></p>
+          </div>
+        </div>
       </div>
 
       <a href="#about" class="scroll-hint" aria-label="Scroll to About section">
-        <span class="scroll-hint-mouse"><span class="scroll-hint-dot"></span></span>
+        <span class="scroll-hint-line"></span>
         <span class="scroll-hint-text">scroll</span>
       </a>
     </section>
@@ -152,52 +161,59 @@
     ========================================================= -->
     <section id="about" aria-labelledby="about-heading">
       <div class="container">
-        <span class="section-label reveal">01 / About</span>
-        <h2 id="about-heading" class="section-title reveal">Turning raw data into<br /><span class="accent-grad">decisions people trust.</span></h2>
+        <p class="section-label reveal"><span class="section-idx">01</span>About</p>
+        <h2 id="about-heading" class="section-title reveal">From research paper<br /><span class="grad">to live product.</span></h2>
 
         <div class="about-grid">
           <div class="about-prose">
             <p class="reveal">
-              I'm a second-year Computer Science Engineering student focused on the intersection of applied ML and data analysis. My work spans CNN-based computer vision, Python automation, and front-end engineering — but the throughline is always the same: turn raw data into something a person can actually use to make a decision.
+              I'm a third-year Computer Science Engineering student at Sanjivani University. I enjoy building AI that people can actually use, mainly in computer vision and large language models.
             </p>
             <p class="reveal">
-              I recently completed a three-month LLM training internship at Ethara AI, where I worked on training and fine-tuning large language models. Before that, I led a six-person team building an AI plant-disease detection system, shipped a GPT-4 voice assistant, and built an end-to-end ATS resume analyzer. I care about clean architecture, honest documentation, and writing the kind of code I'd want to inherit.
+              I worked full-time for five months at Ethara AI as an LLM post-training intern, rating AI-generated images, video and audio and writing prompts used to improve multimodal models. I also led a six-member team on KrushiAI, a crop-disease detection system, and I'm the first author of our research paper on it, accepted at IC2NC 2026.
             </p>
             <p class="reveal">
-              Outside of academics, I take on independent projects to stay sharp and contribute to open source when I can.
+              I've built and deployed full-stack AI web apps with React, TypeScript, Node.js and FastAPI using the Gemini and Claude APIs, and designed offline edge-AI systems for national hackathons. Next, I want to grow as a researcher in a strong lab and work on real research problems.
             </p>
-          </div>
 
-          <div class="about-right">
-            <div class="about-photo reveal">
-              <div class="about-photo-frame">
-                <img
-                  src="photo.jpg"
-                  alt="Prathamesh Shinde"
-                  loading="lazy"
-                />
+            <div class="stat-strip reveal-group">
+              <div class="stat-block panel reveal">
+                <span class="stat-label">GPA</span>
+                <span class="stat-value" data-counter="8.2" data-suffix="/10">8.2/10</span>
+              </div>
+              <div class="stat-block panel reveal">
+                <span class="stat-label">Live AI apps</span>
+                <span class="stat-value" data-counter="3" data-suffix="">3</span>
+              </div>
+              <div class="stat-block panel reveal">
+                <span class="stat-label">First-author paper</span>
+                <span class="stat-value" data-counter="1" data-suffix="">1</span>
+              </div>
+              <div class="stat-block panel reveal">
+                <span class="stat-label">National hackathons</span>
+                <span class="stat-value" data-counter="5" data-suffix="+">5+</span>
               </div>
             </div>
-            <div class="stat-strip reveal-group">
-            <div class="stat-block reveal">
-              <span class="stat-label">GPA</span>
-              <span class="stat-value" data-counter="8.2" data-suffix=" / 10">8.2 / 10</span>
-            </div>
-            <div class="stat-block reveal">
-              <span class="stat-label">Projects Shipped</span>
-              <span class="stat-value" data-counter="6" data-suffix="+">6+</span>
-            </div>
-            <div class="stat-block reveal">
-              <span class="stat-label">Hackathon Rank</span>
-              <span class="stat-value" data-counter="2" data-suffix="nd">2nd</span>
-            </div>
-            <div class="stat-block reveal">
-              <span class="stat-label">Certifications</span>
-              <span class="stat-value" data-counter="2" data-suffix="">2</span>
-            </div>
           </div>
-          </div><!-- /.about-right -->
-        </div><!-- /.about-grid -->
+
+          <figure class="about-photo reveal">
+            <div class="photo-stage">
+              <div class="photo-glow" aria-hidden="true"></div>
+              <div class="photo-frame">
+                <div class="photo-ring" aria-hidden="true"></div>
+                <img src="photo.jpg" alt="Portrait of Prathamesh Shinde" loading="lazy" />
+                <span class="photo-glare" aria-hidden="true"></span>
+              </div>
+              <span class="photo-chip chip-1" aria-hidden="true"><span class="live-dot"></span>Open to work</span>
+              <span class="photo-chip chip-2" aria-hidden="true">Computer Vision</span>
+              <span class="photo-chip chip-3" aria-hidden="true">LLMs · Agentic AI</span>
+            </div>
+            <figcaption>
+              <span>ID // PRATHAMESH SHINDE</span>
+              <span>AHILYANAGAR, IN</span>
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -206,112 +222,153 @@
     ========================================================= -->
     <section id="skills" aria-labelledby="skills-heading">
       <div class="container">
-        <span class="section-label reveal">02 / Tech Stack</span>
-        <h2 id="skills-heading" class="section-title reveal">Tools I reach for<br /><span class="accent-grad">every single day.</span></h2>
+        <p class="section-label reveal"><span class="section-idx">02</span>Tech Stack</p>
+        <h2 id="skills-heading" class="section-title reveal">Tools I reach for<br /><span class="grad">every single day.</span></h2>
 
-        <!-- Infinite logo marquee -->
         <div class="tech-marquee reveal" aria-hidden="true">
           <div class="tech-marquee-track">
-            <!-- set 1 -->
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" loading="lazy" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="" loading="lazy" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="" loading="lazy" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" loading="lazy" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="" loading="lazy" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" alt="" loading="lazy" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" alt="" loading="lazy" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="" loading="lazy" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg" alt="" loading="lazy" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="" loading="lazy" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="" loading="lazy" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" loading="lazy" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/keras/keras-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/raspberrypi/raspberrypi-original.svg" alt="" loading="lazy" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original.svg" alt="" loading="lazy" />
-            <!-- set 2 (duplicate for seamless loop) -->
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" loading="lazy" />
+            <!-- duplicate set for a seamless loop -->
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" loading="lazy" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="" loading="lazy" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="" loading="lazy" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" loading="lazy" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="" loading="lazy" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" alt="" loading="lazy" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" alt="" loading="lazy" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="" loading="lazy" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg" alt="" loading="lazy" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="" loading="lazy" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="" loading="lazy" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" loading="lazy" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/keras/keras-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/raspberrypi/raspberrypi-original.svg" alt="" loading="lazy" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original.svg" alt="" loading="lazy" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" loading="lazy" />
           </div>
         </div>
 
-        <div class="skills-list">
+        <div class="skills-grid">
 
-          <div class="skill-row reveal">
-            <span class="skill-category">Languages</span>
+          <div class="skill-module panel reveal">
+            <p class="skill-category"><span>01</span>Programming</p>
             <div class="pills" role="list">
               <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="" loading="lazy" />Python</span>
               <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="" loading="lazy" />Java</span>
               <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="" loading="lazy" />C++</span>
+              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" loading="lazy" />SQL</span>
               <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="" loading="lazy" />JavaScript</span>
               <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="" loading="lazy" />TypeScript</span>
-              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" loading="lazy" />SQL</span>
+              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="" loading="lazy" />HTML</span>
             </div>
           </div>
 
-          <div class="skill-row reveal">
-            <span class="skill-category">AI / ML</span>
+          <div class="skill-module panel reveal">
+            <p class="skill-category"><span>02</span>AI / ML</p>
             <div class="pills" role="list">
-              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="" loading="lazy" />TensorFlow</span>
-              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg" alt="" loading="lazy" />OpenCV</span>
-              <span class="pill" role="listitem">LLM Training</span>
-              <span class="pill" role="listitem">CNN</span>
+              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="" loading="lazy" />TensorFlow / Keras</span>
+              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="" loading="lazy" />PyTorch</span>
+              <span class="pill" role="listitem">Deep Learning</span>
+              <span class="pill" role="listitem">Machine Learning</span>
               <span class="pill" role="listitem">Computer Vision</span>
+              <span class="pill" role="listitem">CNN</span>
+              <span class="pill" role="listitem">Transfer Learning (MobileNetV2)</span>
+              <span class="pill" role="listitem">Image Processing</span>
+              <span class="pill" role="listitem">Model Evaluation</span>
+            </div>
+          </div>
+
+          <div class="skill-module panel reveal">
+            <p class="skill-category"><span>03</span>LLMs &amp; Agentic AI</p>
+            <div class="pills" role="list">
+              <span class="pill" role="listitem">LangGraph</span>
+              <span class="pill" role="listitem">RAG</span>
+              <span class="pill" role="listitem">Multi-Agent Systems</span>
+              <span class="pill" role="listitem">ChromaDB</span>
+              <span class="pill" role="listitem">Gemini API</span>
               <span class="pill" role="listitem">OpenAI API</span>
-              <span class="pill" role="listitem">GPT-4</span>
+              <span class="pill" role="listitem">Claude API</span>
+              <span class="pill" role="listitem">Prompt Engineering</span>
             </div>
           </div>
 
-          <div class="skill-row reveal">
-            <span class="skill-category">Data & Analytics</span>
+          <div class="skill-module panel reveal">
+            <p class="skill-category"><span>04</span>Full Stack</p>
             <div class="pills" role="list">
-              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="" loading="lazy" />Pandas</span>
-              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="" loading="lazy" />NumPy</span>
-              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" alt="" loading="lazy" />Matplotlib</span>
-              <span class="pill" role="listitem">Seaborn</span>
-              <span class="pill" role="listitem">Excel (Pivots, VLOOKUP)</span>
-            </div>
-          </div>
-
-          <div class="skill-row reveal">
-            <span class="skill-category">Web</span>
-            <div class="pills" role="list">
-              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="" loading="lazy" />HTML5</span>
-              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="" loading="lazy" />CSS3</span>
               <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="" loading="lazy" />React</span>
+              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" alt="" loading="lazy" />Angular</span>
               <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="" loading="lazy" />Node.js</span>
+              <span class="pill" role="listitem">Express</span>
+              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" alt="" loading="lazy" />FastAPI</span>
               <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original.svg" alt="" loading="lazy" />Streamlit</span>
-              <span class="pill" role="listitem">Responsive Design</span>
+              <span class="pill" role="listitem">REST APIs</span>
             </div>
           </div>
 
-          <div class="skill-row reveal">
-            <span class="skill-category">Tools</span>
+          <div class="skill-module panel reveal">
+            <p class="skill-category"><span>05</span>Databases</p>
+            <div class="pills" role="list">
+              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="" loading="lazy" />MongoDB Atlas</span>
+              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" loading="lazy" />PostgreSQL</span>
+              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="" loading="lazy" />MySQL</span>
+            </div>
+          </div>
+
+          <div class="skill-module panel reveal">
+            <p class="skill-category"><span>06</span>Edge AI</p>
+            <div class="pills" role="list">
+              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/raspberrypi/raspberrypi-original.svg" alt="" loading="lazy" />Raspberry Pi</span>
+              <span class="pill" role="listitem">NVIDIA Jetson Nano</span>
+              <span class="pill" role="listitem">ESP32</span>
+            </div>
+          </div>
+
+          <div class="skill-module panel reveal">
+            <p class="skill-category"><span>07</span>Web Design</p>
+            <div class="pills" role="list">
+              <span class="pill" role="listitem">Responsive Layouts</span>
+              <span class="pill" role="listitem">Mobile-Friendly Interfaces</span>
+              <span class="pill" role="listitem">User-Centered Design</span>
+              <span class="pill" role="listitem">Clean Dashboards</span>
+            </div>
+          </div>
+
+          <div class="skill-module panel reveal">
+            <p class="skill-category"><span>08</span>Automation</p>
+            <div class="pills" role="list">
+              <span class="pill" role="listitem">n8n Workflows</span>
+              <span class="pill" role="listitem">UiPath (RPA)</span>
+              <span class="pill" role="listitem">Python Scripts</span>
+            </div>
+          </div>
+
+          <div class="skill-module panel reveal">
+            <p class="skill-category"><span>09</span>Tools</p>
             <div class="pills" role="list">
               <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="" loading="lazy" />Git</span>
-              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="" loading="lazy" />VS Code</span>
-              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" alt="" loading="lazy" />Jupyter</span>
-              <span class="pill tech-chip" role="listitem"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" alt="" loading="lazy" />Postman</span>
-              <span class="pill" role="listitem">Google Colab</span>
-            </div>
-          </div>
-
-          <div class="skill-row reveal">
-            <span class="skill-category">Soft Skills</span>
-            <div class="pills" role="list">
-              <span class="pill" role="listitem">Team Leadership</span>
-              <span class="pill" role="listitem">Technical Writing</span>
-              <span class="pill" role="listitem">Cross-functional Coordination</span>
+              <span class="pill" role="listitem">GitHub</span>
+              <span class="pill" role="listitem">LaTeX</span>
+              <span class="pill" role="listitem">Vercel</span>
+              <span class="pill" role="listitem">Render</span>
             </div>
           </div>
 
@@ -321,158 +378,205 @@
 
     <!-- =========================================================
          PROJECTS
+         To add a live link: replace the <span class="btn-live is-pending">…</span>
+         in a card with:
+           <a href="https://your-url" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">Live demo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+         and add "live" to that card's data-tags (this shows the LIVE badge
+         and puts it under the "Live" filter).
     ========================================================= -->
     <section id="projects" aria-labelledby="projects-heading">
       <div class="container">
-        <span class="section-label reveal">03 / Projects</span>
-        <h2 id="projects-heading" class="section-title reveal">Things I've<br /><span class="accent-grad">actually shipped.</span></h2>
-        <p class="projects-intro reveal">A selection of recent work. Full list on GitHub.</p>
+        <p class="section-label reveal"><span class="section-idx">03</span>Projects</p>
+        <h2 id="projects-heading" class="section-title reveal">Things I've<br /><span class="grad">actually shipped.</span></h2>
+
+        <div class="projects-toolbar reveal">
+          <p class="projects-intro">AI and full-stack work, three of them live. More on <a href="https://github.com/PrathameshShinde24" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+          <div class="filter-bar" role="group" aria-label="Filter projects">
+            <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">All <span class="filter-count"></span></button>
+            <button type="button" class="filter-btn" data-filter="live" aria-pressed="false">Live <span class="filter-count"></span></button>
+            <button type="button" class="filter-btn" data-filter="fullstack" aria-pressed="false">Full-stack <span class="filter-count"></span></button>
+            <button type="button" class="filter-btn" data-filter="research" aria-pressed="false">Research <span class="filter-count"></span></button>
+            <button type="button" class="filter-btn" data-filter="edge" aria-pressed="false">Edge AI <span class="filter-count"></span></button>
+          </div>
+        </div>
 
         <div class="projects-grid">
 
-          <!-- Project 01 -->
-          <article class="project-card reveal" aria-labelledby="proj01-title">
-            <div class="project-card-top">
-              <span class="project-number">Project 01</span>
-              <span class="project-year">2026</span>
+          <!-- Project 01 — featured -->
+          <article class="project-card project-card--featured panel hud reveal" data-tags="ai live research" aria-labelledby="proj-krushi-title">
+            <div class="project-main">
+              <div class="project-card-top">
+                <span class="project-number">P/01 · 2025–26</span>
+                <span class="badge badge-featured">Featured</span>
+              </div>
+              <h3 id="proj-krushi-title">KrushiAI</h3>
+              <p class="project-role">Team Lead · 6 members · AI crop-disease detection</p>
+              <p class="project-desc">
+                An app that spots pomegranate diseases from a single photo. I led a team of six from model to live product: we trained on 5,099 images covering 4 diseases and healthy fruit, then rebuilt our first ~500 MB model with MobileNetV2 transfer learning to make it about 50× smaller. The app adds login, scan history, weather, crop advice and government-scheme pages in more than one language.
+              </p>
+              <div class="pills" role="list" aria-label="Technologies used">
+                <span class="pill" role="listitem">Python</span>
+                <span class="pill" role="listitem">TensorFlow / Keras</span>
+                <span class="pill" role="listitem">MobileNetV2</span>
+                <span class="pill" role="listitem">Streamlit</span>
+                <span class="pill" role="listitem">MongoDB Atlas</span>
+              </div>
+              <div class="project-links">
+                <a href="https://krushiai.streamlit.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary" aria-label="KrushiAI live demo (opens in new tab)">Live demo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                <a href="https://github.com/PrathameshShinde24/KrushiAI" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost" aria-label="KrushiAI source code on GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg>Code</a>
+                <a href="#research" class="btn btn-sm btn-ghost"><svg aria-hidden="true"><use href="#i-doc"/></svg>Paper</a>
+              </div>
             </div>
-            <h3 id="proj01-title">SkillMap AI</h3>
-            <p class="project-role">Solo project · Full-stack + AI</p>
+            <dl class="project-spec" aria-label="Project results">
+              <div><dt>Dataset</dt><dd>5,099 images · 4 diseases + healthy</dd></div>
+              <div><dt>Model</dt><dd>MobileNetV2 · 9.59 MB (~50× smaller)</dd></div>
+              <div><dt>Results</dt><dd>93.92% val accuracy · 0.93 macro F1</dd></div>
+              <div><dt>Research</dt><dd>First-author paper · accepted at IC2NC 2026</dd></div>
+            </dl>
+          </article>
+
+          <!-- Project 02 -->
+          <article class="project-card panel hud reveal" data-tags="ai fullstack live" aria-labelledby="proj-skillmap-title">
+            <div class="project-card-top">
+              <span class="project-number">P/02 · 2026</span>
+            </div>
+            <h3 id="proj-skillmap-title">SkillMap AI</h3>
+            <p class="project-role">Solo project · AI resume &amp; ATS analyzer</p>
             <p class="project-desc">
-              An AI-powered resume analyzer that parses uploaded PDFs, scores ATS compatibility against any job description, and generates a skill-gap report with curated free learning resources. Built end-to-end — auth, PDF parsing, OpenAI integration, PostgreSQL persistence, and a dark luxury UI.
+              Upload a resume and paste a job description to get an ATS match score, the skills you have and the ones you're missing. Gemini returns a fixed JSON format, with a backup model when the main one is busy or out of quota. Includes sign-up with secure sessions, password reset by email, a score-history dashboard, and free courses for each missing skill.
             </p>
             <div class="pills" role="list" aria-label="Technologies used">
               <span class="pill" role="listitem">React</span>
               <span class="pill" role="listitem">TypeScript</span>
               <span class="pill" role="listitem">Node.js</span>
               <span class="pill" role="listitem">Express</span>
-              <span class="pill" role="listitem">PostgreSQL</span>
-              <span class="pill" role="listitem">Prisma</span>
-              <span class="pill" role="listitem">OpenAI API</span>
-              <span class="pill" role="listitem">Tailwind</span>
-              <span class="pill" role="listitem">Framer Motion</span>
+              <span class="pill" role="listitem">PostgreSQL (Prisma)</span>
+              <span class="pill" role="listitem">Gemini API</span>
+              <span class="pill" role="listitem">Render + Neon</span>
             </div>
             <div class="project-links">
-              <a href="https://github.com/PrathameshShinde24/skillmap-ai" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="SkillMap AI on GitHub (opens link)">GitHub ↗</a>
-              <a href="#" class="project-link" aria-label="SkillMap AI live demo (opens link)">Live ↗</a>
-            </div>
-          </article>
-
-          <!-- Project 02 -->
-          <article class="project-card reveal" aria-labelledby="proj02-title">
-            <div class="project-card-top">
-              <span class="project-number">Project 02</span>
-              <span class="project-year">2025–Present</span>
-            </div>
-            <h3 id="proj02-title">KrushiAI</h3>
-            <p class="project-role">Team Lead · 6 members · Sanjivani University</p>
-            <p class="project-desc">
-              A CNN-based plant disease detector for pomegranate leaves. Built the full ML pipeline — dataset collection, OpenCV preprocessing, model training, accuracy iteration — and shipped a real-time Streamlit dashboard for stakeholder review. Led a six-person team across the project lifecycle.
-            </p>
-            <div class="pills" role="list" aria-label="Technologies used">
-              <span class="pill" role="listitem">Python</span>
-              <span class="pill" role="listitem">TensorFlow</span>
-              <span class="pill" role="listitem">OpenCV</span>
-              <span class="pill" role="listitem">CNN</span>
-              <span class="pill" role="listitem">Streamlit</span>
-              <span class="pill" role="listitem">Pandas</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/PrathameshShinde24/KrushiAI" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="KrushiAI on GitHub (opens link)">GitHub ↗</a>
-              <a href="#" class="project-link" aria-label="KrushiAI live demo (opens link)">Live ↗</a>
+              <a href="https://skillmapai-yu8e.onrender.com" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary" aria-label="SkillMap AI live demo (opens in new tab)">Live demo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a href="https://github.com/PrathameshShinde24/skillmap-ai" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost" aria-label="SkillMap AI source code on GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg>Code</a>
             </div>
           </article>
 
           <!-- Project 03 -->
-          <article class="project-card reveal" aria-labelledby="proj03-title">
+          <article class="project-card panel hud reveal" data-tags="ai fullstack live" aria-labelledby="proj-pt-title">
             <div class="project-card-top">
-              <span class="project-number">Project 03</span>
-              <span class="project-year">2026</span>
+              <span class="project-number">P/03 · 2026</span>
             </div>
-            <h3 id="proj03-title">Inventory &amp; Sales Analytics Dashboard</h3>
-            <p class="project-role">Independent · Data analysis</p>
+            <h3 id="proj-pt-title">Paper Trail</h3>
+            <p class="project-role">Solo project · Multilingual medical report explainer</p>
             <p class="project-desc">
-              End-to-end analysis of a 10,000+ record e-commerce dataset to identify defect drivers and fulfillment bottlenecks. Performed root-cause analysis (top 3 drivers explained 68% of adjustments) and produced an automated pivot-ready Excel report mirroring real warehouse analytics workflows.
+              Reads a blood-report PDF and explains each result in simple Marathi, Hindi or English. Gemini pulls out the values, explains medical terms and flags results that need a doctor urgently, and the device's built-in voice reads it aloud. Charts track results across reports, sign-in keeps them private, and PDFs are deleted right after processing. First built at the OpenAI × Outskill AI Builders Hackathon.
             </p>
             <div class="pills" role="list" aria-label="Technologies used">
-              <span class="pill" role="listitem">Python</span>
-              <span class="pill" role="listitem">Pandas</span>
-              <span class="pill" role="listitem">NumPy</span>
-              <span class="pill" role="listitem">Matplotlib</span>
-              <span class="pill" role="listitem">Seaborn</span>
-              <span class="pill" role="listitem">Excel</span>
+              <span class="pill" role="listitem">React</span>
+              <span class="pill" role="listitem">TypeScript</span>
+              <span class="pill" role="listitem">Vercel Serverless</span>
+              <span class="pill" role="listitem">Gemini API</span>
+              <span class="pill" role="listitem">MongoDB Atlas</span>
+              <span class="pill" role="listitem">Clerk</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link" aria-label="Inventory Analytics on GitHub (opens link)">GitHub ↗</a>
+              <a href="https://paper-trail-dusky.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary" aria-label="Paper Trail live demo (opens in new tab)">Live demo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a href="https://github.com/PrathameshShinde24/paper-trail" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost" aria-label="Paper Trail source code on GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg>Code</a>
             </div>
           </article>
 
           <!-- Project 04 -->
-          <article class="project-card reveal" aria-labelledby="proj04-title">
+          <article class="project-card panel hud reveal" data-tags="ai fullstack" aria-labelledby="proj-seva-title">
             <div class="project-card-top">
-              <span class="project-number">Project 04</span>
-              <span class="project-year">2025</span>
+              <span class="project-number">P/04 · 2026</span>
+              <span class="badge">Testing</span>
             </div>
-            <h3 id="proj04-title">Jarvis AI Assistant</h3>
-            <p class="project-role">Solo project · Lead Developer</p>
+            <h3 id="proj-seva-title">SevaPath</h3>
+            <p class="project-role">Solo project · Government jobs &amp; exam prep</p>
             <p class="project-desc">
-              A voice-activated assistant powered by GPT-4 for multi-turn task automation across Android and Desktop. Owned full lifecycle from requirements through release; integrates speech recognition, contextual memory, and tool-use orchestration.
+              A platform that helps students in Maharashtra find government jobs and prepare for competitive exams. Built end-to-end — React frontend, FastAPI backend and MongoDB — with AI guidance from the Claude API and Marathi support so students can use it in their own language. Now testing with sample data while exam rules are checked; public launch is next.
             </p>
             <div class="pills" role="list" aria-label="Technologies used">
-              <span class="pill" role="listitem">Python</span>
-              <span class="pill" role="listitem">OpenAI API</span>
-              <span class="pill" role="listitem">Speech Recognition</span>
-              <span class="pill" role="listitem">Android</span>
+              <span class="pill" role="listitem">React</span>
+              <span class="pill" role="listitem">FastAPI</span>
+              <span class="pill" role="listitem">MongoDB</span>
+              <span class="pill" role="listitem">Claude API</span>
             </div>
             <div class="project-links">
-              <a href="https://github.com/PrathameshShinde24/jarvisAI" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Jarvis AI Assistant on GitHub (opens link)">GitHub ↗</a>
+              <span class="btn-live is-pending" aria-disabled="true"><span class="pending-dot"></span>Launching soon</span>
+              <!-- Add the GitHub link here once the repo is public:
+                   https://github.com/PrathameshShinde24/SevaPath -->
             </div>
           </article>
 
           <!-- Project 05 -->
-          <article class="project-card reveal" aria-labelledby="proj05-title">
+          <article class="project-card panel hud reveal" data-tags="ai edge" aria-labelledby="proj-edge-title">
             <div class="project-card-top">
-              <span class="project-number">Project 05</span>
-              <span class="project-year">2025</span>
+              <span class="project-number">P/05 · 2026</span>
+              <span class="badge">Design phase</span>
             </div>
-            <h3 id="proj05-title">E-commerce Platform</h3>
-            <p class="project-role">Independent · Front-end</p>
+            <h3 id="proj-edge-title">SafarSathi &amp; TyreSense</h3>
+            <p class="project-role">Edge AI system designs · Tata Technologies InnoVent-27</p>
             <p class="project-desc">
-              A dynamic e-commerce front-end with product listings, cart state management, and responsive layouts. Focused on clean component structure and predictable state.
+              <strong>SafarSathi</strong> is an offline car-diagnosis assistant on Raspberry Pi / Jetson Nano that reads OBD-II data and explains faults by voice in Hindi and Marathi, with no internet needed. <strong>TyreSense</strong> is a tyre-health monitor that uses an ESP32 and MEMS motion sensors to check tyres on the device itself. Full system designs and pitch decks prepared for the hackathon.
             </p>
             <div class="pills" role="list" aria-label="Technologies used">
-              <span class="pill" role="listitem">JavaScript</span>
-              <span class="pill" role="listitem">HTML5</span>
-              <span class="pill" role="listitem">CSS3</span>
-              <span class="pill" role="listitem">Responsive Design</span>
+              <span class="pill" role="listitem">Raspberry Pi</span>
+              <span class="pill" role="listitem">Jetson Nano</span>
+              <span class="pill" role="listitem">ESP32</span>
+              <span class="pill" role="listitem">OBD-II</span>
+              <span class="pill" role="listitem">MEMS Accelerometers</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link" aria-label="E-commerce Platform on GitHub (opens link)">GitHub ↗</a>
-              <a href="#" class="project-link" aria-label="E-commerce Platform live demo (opens link)">Live ↗</a>
+              <span class="project-note">System design &amp; pitch · offline, on-device AI</span>
             </div>
           </article>
 
-          <!-- Project 06 -->
-          <article class="project-card reveal" aria-labelledby="proj06-title">
-            <div class="project-card-top">
-              <span class="project-number">Project 06</span>
-              <span class="project-year">2026</span>
+        </div>
+        <p class="filter-empty" hidden>No projects in this category yet.</p>
+
+        <div class="also-built reveal">
+          <span class="also-label">Also built</span>
+          <a href="https://github.com/PrathameshShinde24/jarvisAI" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-github"/></svg>Jarvis AI Assistant</a>
+          <a href="https://github.com/PrathameshShinde24/InventoryDashboard" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-github"/></svg>Inventory Dashboard</a>
+          <a href="https://github.com/PrathameshShinde24/PrathameshShinde24.github.io" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-github"/></svg>This portfolio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         RESEARCH
+    ========================================================= -->
+    <section id="research" aria-labelledby="research-heading">
+      <div class="container">
+        <p class="section-label reveal"><span class="section-idx">04</span>Research</p>
+        <h2 id="research-heading" class="section-title reveal">Research &amp;<br /><span class="grad">publications.</span></h2>
+
+        <div class="research-grid">
+          <article class="research-card research-card--main panel hud reveal">
+            <div class="research-top">
+              <span class="badge badge-live"><span class="live-dot" aria-hidden="true"></span>Accepted · IC2NC 2026</span>
+              <span class="research-type">Research paper</span>
             </div>
-            <h3 id="proj06-title">Portfolio Website</h3>
-            <p class="project-role">Independent · Front-end</p>
-            <p class="project-desc">
-              This site. Vanilla HTML, CSS, and JavaScript — no frameworks, no build step. Designed around restraint: a single accent color, two type families, and one signature scroll interaction.
-            </p>
-            <div class="pills" role="list" aria-label="Technologies used">
-              <span class="pill" role="listitem">HTML5</span>
-              <span class="pill" role="listitem">CSS3</span>
-              <span class="pill" role="listitem">JavaScript</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/PrathameshShinde24/PrathameshShinde24.github.io" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Portfolio Website on GitHub (opens link)">GitHub ↗</a>
-            </div>
+            <h3>A Deep Learning Approach for Early Detection and Classification of Pomegranate Fruit Diseases Using Convolutional Neural Networks</h3>
+            <p class="research-authors">First author, with Akash Pingale · under the guidance of Prof. Patolla Venkat Reddy</p>
+            <dl class="research-metrics">
+              <div><dt>Validation accuracy</dt><dd>93.92%</dd></div>
+              <div><dt>Macro F1-score</dt><dd>0.93</dd></div>
+              <div><dt>Model size</dt><dd>9.59 MB</dd></div>
+            </dl>
           </article>
 
+          <article class="research-card panel hud reveal">
+            <div class="research-top">
+              <span class="badge badge-progress">In progress</span>
+              <span class="research-type">Research proposal</span>
+            </div>
+            <h3>Cipher-Encoded Jailbreak Resistance in LLMs</h3>
+            <p class="research-desc">
+              Studying how AI chat systems can catch harmful requests hidden inside codes or ciphers, without blocking normal translation, encoding and puzzle tasks.
+            </p>
+            <p class="research-authors">Builds on Yuan et al., “GPT-4 Is Too Smart to Be Safe” (ICLR 2024)</p>
+          </article>
         </div>
       </div>
     </section>
@@ -482,164 +586,165 @@
     ========================================================= -->
     <section id="experience" aria-labelledby="experience-heading">
       <div class="container">
-        <span class="section-label reveal">04 / Experience</span>
-        <h2 id="experience-heading" class="section-title reveal">Where I've<br /><span class="accent-grad">put in the hours.</span></h2>
+        <p class="section-label reveal"><span class="section-idx">05</span>Experience</p>
+        <h2 id="experience-heading" class="section-title reveal">Where I've<br /><span class="grad">put in the hours.</span></h2>
 
-        <div class="timeline">
+        <ol class="timeline">
 
-          <div class="timeline-entry reveal">
-            <span class="timeline-date">Feb 2026 — May 2026</span>
-            <div>
-              <p class="timeline-role">LLM Training Intern</p>
-              <p class="timeline-context">Ethara AI · Remote</p>
+          <li class="timeline-entry reveal">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <div class="timeline-card panel">
+              <div class="timeline-head">
+                <div>
+                  <p class="timeline-role">LLM Post-Training Intern</p>
+                  <p class="timeline-context">Ethara AI · Full-time</p>
+                </div>
+                <span class="timeline-date">Feb 2026 — Jun 2026</span>
+              </div>
               <ul class="timeline-bullets">
-                <li>Trained and fine-tuned large language models as part of the applied AI team over a three-month engagement.</li>
-                <li>Prepared and cleaned training datasets, and ran evaluation passes to track model quality across iterations.</li>
-                <li>Delivered against sprint milestones in a fully remote, deadline-driven workflow.</li>
+                <li>Worked full-time (8 hours/day) for 5 months on human feedback data for multimodal AI models.</li>
+                <li>Compared and rated AI-generated images, videos and audio every day, following clear written guidelines.</li>
+                <li>Wrote prompts and detailed image descriptions used as feedback to improve AI models.</li>
+                <li>Learned how much careful human judgment and clean data matter in making AI models better.</li>
               </ul>
             </div>
-          </div>
+          </li>
 
-          <div class="timeline-entry reveal">
-            <span class="timeline-date">2024 — Present</span>
-            <div>
-              <p class="timeline-role">Independent Developer</p>
-              <p class="timeline-context">Remote</p>
+          <li class="timeline-entry is-current reveal">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <div class="timeline-card panel">
+              <div class="timeline-head">
+                <div>
+                  <p class="timeline-role">Team Lead, KrushiAI</p>
+                  <p class="timeline-context">Sanjivani University</p>
+                </div>
+                <span class="timeline-date">Dec 2025 — Present</span>
+              </div>
               <ul class="timeline-bullets">
-                <li>Built and maintained Python projects, shipping working software against self-set milestones.</li>
-                <li>Produced documentation and UI designs for web and mobile platforms.</li>
-                <li>Contributed to open-source projects across distributed teams.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="timeline-entry reveal">
-            <span class="timeline-date">Dec 2025 — Present</span>
-            <div>
-              <p class="timeline-role">Team Lead, KrushiAI</p>
-              <p class="timeline-context">Sanjivani University</p>
-              <ul class="timeline-bullets">
-                <li>Led a six-person team across requirements, development, and delivery phases.</li>
+                <li>Led a six-member team, taking KrushiAI from an AI model to a live app and an accepted research paper.</li>
                 <li>Owned the ML pipeline end-to-end and ran weekly progress check-ins.</li>
               </ul>
             </div>
-          </div>
+          </li>
 
-          <div class="timeline-entry reveal">
-            <span class="timeline-date">Apr 2025 — May 2025</span>
-            <div>
-              <p class="timeline-role">Front-end Developer</p>
-              <p class="timeline-context">Independent</p>
+          <li class="timeline-entry reveal">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <div class="timeline-card panel">
+              <div class="timeline-head">
+                <div>
+                  <p class="timeline-role">National Hackathons</p>
+                  <p class="timeline-context">Smart India Hackathon 2026 · Tata Technologies InnoVent-27 · OpenAI × Outskill AI Builders</p>
+                </div>
+                <span class="timeline-date">5+ hackathons</span>
+              </div>
               <ul class="timeline-bullets">
-                <li>Shipped an e-commerce platform and a responsive portfolio site.</li>
-                <li>Focused on clean state management and accessible markup.</li>
+                <li>Took part in 5+ national hackathons, building and pitching AI products under tight deadlines.</li>
+                <li>Designed the SafarSathi and TyreSense edge-AI systems for Tata Technologies InnoVent-27.</li>
+                <li>Built the first version of Paper Trail at the OpenAI × Outskill AI Builders Hackathon.</li>
+                <li>Won 2nd place in a university-level web development hackathon.</li>
               </ul>
             </div>
-          </div>
+          </li>
 
-        </div>
+        </ol>
       </div>
     </section>
 
     <!-- =========================================================
-         EDUCATION & ACHIEVEMENTS
+         EDUCATION, ACHIEVEMENTS & CERTIFICATIONS
     ========================================================= -->
     <section id="education" aria-labelledby="education-heading">
       <div class="container">
-        <span class="section-label reveal">05 / Education</span>
-        <h2 id="education-heading" class="section-title reveal">Credentials and<br /><span class="accent-grad">proof of work.</span></h2>
+        <p class="section-label reveal"><span class="section-idx">06</span>Education</p>
+        <h2 id="education-heading" class="section-title reveal">Credentials and<br /><span class="grad">proof of work.</span></h2>
 
         <div class="edu-grid">
-
-          <!-- Education -->
           <div class="reveal">
-            <p class="edu-group-label">Education</p>
-
-            <div class="edu-entry">
+            <p class="group-label">Education</p>
+            <div class="edu-entry panel">
               <p class="edu-degree">B.Tech, Computer Science &amp; Engineering</p>
-              <p class="edu-institution">Sanjivani University, Maharashtra</p>
-              <p class="edu-meta">2024–2028 (Expected) · GPA 8.2 / 10</p>
+              <p class="edu-institution">Sanjivani University, Kopargaon</p>
+              <p class="edu-meta">2024–2028 · GPA 8.2 / 10</p>
             </div>
-
-            <div class="edu-entry">
-              <p class="edu-degree">Higher Secondary (Class XII)</p>
-              <p class="edu-institution">NPMHS (MHSB), Maharashtra</p>
-              <p class="edu-meta">2024 · 71.00%</p>
+            <div class="edu-entry panel">
+              <p class="edu-degree">Higher Secondary Certificate (Class XII)</p>
+              <p class="edu-institution">Vidya Vikas Secondary College</p>
+              <p class="edu-meta">2023–2024 · 75%</p>
             </div>
           </div>
 
-          <!-- Achievements -->
           <div class="reveal">
-            <p class="edu-group-label">Achievements &amp; Certifications</p>
-
+            <p class="group-label">Achievements</p>
             <div class="cert-grid">
 
-              <div class="cert-card">
-                <div class="cert-icon-wrap">
-                  <!-- Trophy icon -->
-                  <svg class="cert-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="8 21 12 17 16 21"/>
-                    <line x1="12" y1="17" x2="12" y2="11"/>
-                    <path d="M17 3H7l-1 5c0 3.31 2.69 6 6 6s6-2.69 6-6l-1-5z"/>
-                    <path d="M4 8H2v2a4 4 0 0 0 4 4"/>
-                    <path d="M20 8h2v2a4 4 0 0 1-4 4"/>
-                  </svg>
+              <div class="cert-card panel">
+                <span class="cert-icon-wrap" aria-hidden="true">
+                  <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+                </span>
+                <div class="cert-body">
+                  <p class="cert-title">First-author paper accepted at IC2NC 2026</p>
+                  <p class="cert-issuer">AI-based crop disease detection</p>
                 </div>
+                <span class="cert-tag">Research</span>
+              </div>
+
+              <div class="cert-card panel">
+                <span class="cert-icon-wrap" aria-hidden="true">
+                  <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M17 3H7l-1 5a6 6 0 0 0 12 0l-1-5zM6 8H3v1a4 4 0 0 0 4 4M18 8h3v1a4 4 0 0 1-4 4"/></svg>
+                </span>
                 <div class="cert-body">
                   <p class="cert-title">2nd Place — Web Development Hackathon</p>
                   <p class="cert-issuer">University-level competition</p>
                 </div>
-                <span class="cert-tag">Achievement</span>
+                <span class="cert-tag">Award</span>
               </div>
 
-              <div class="cert-card">
-                <div class="cert-icon-wrap">
-                  <!-- Certificate icon -->
-                  <svg class="cert-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="12" cy="8" r="6"/>
-                    <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
-                  </svg>
-                </div>
+              <div class="cert-card panel">
+                <span class="cert-icon-wrap" aria-hidden="true">
+                  <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>
+                </span>
                 <div class="cert-body">
-                  <p class="cert-title">The Joy of Computing using Python</p>
-                  <p class="cert-issuer">NPTEL · With Distinction</p>
+                  <p class="cert-title">5+ national hackathons</p>
+                  <p class="cert-issuer">SIH 2026 · InnoVent-27 · OpenAI × Outskill</p>
                 </div>
-                <span class="cert-tag">Certificate</span>
+                <span class="cert-tag">Hackathons</span>
               </div>
 
-              <div class="cert-card">
-                <div class="cert-icon-wrap">
-                  <!-- Certificate icon -->
-                  <svg class="cert-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="12" cy="8" r="6"/>
-                    <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
-                  </svg>
-                </div>
+              <div class="cert-card panel">
+                <span class="cert-icon-wrap" aria-hidden="true">
+                  <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M15 9.4a4 4 0 1 0 0 5.2"/></svg>
+                </span>
                 <div class="cert-body">
-                  <p class="cert-title">Java Programming for Beginners</p>
-                  <p class="cert-issuer">Simplilearn</p>
+                  <p class="cert-title">Copyright registration filed</p>
+                  <p class="cert-issuer">Indian Copyright Office · 2026 · under review</p>
                 </div>
-                <span class="cert-tag">Certificate</span>
+                <span class="cert-tag">IP</span>
               </div>
 
-              <div class="cert-card">
-                <div class="cert-icon-wrap">
-                  <!-- Briefcase icon -->
-                  <svg class="cert-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                  </svg>
-                </div>
+              <div class="cert-card panel">
+                <span class="cert-icon-wrap" aria-hidden="true">
+                  <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </span>
                 <div class="cert-body">
-                  <p class="cert-title">LLM Training Internship</p>
-                  <p class="cert-issuer">Ethara AI · Feb–May 2026</p>
+                  <p class="cert-title">5-month full-time internship</p>
+                  <p class="cert-issuer">Ethara AI · human feedback data for AI models</p>
                 </div>
                 <span class="cert-tag">Internship</span>
               </div>
 
             </div>
           </div>
+        </div>
 
+        <div class="certs reveal">
+          <p class="group-label">Certifications</p>
+          <ul class="cert-list">
+            <li class="cert-item panel"><span class="cert-org">NPTEL</span><span>The Joy of Computing using Python <em>(with Distinction)</em></span></li>
+            <li class="cert-item panel"><span class="cert-org">Google Cloud</span><span>Exploring Data Transformation with Google Cloud · Google ML Crash Course</span></li>
+            <li class="cert-item panel"><span class="cert-org">Microsoft</span><span>Azure AI Engineer Associate · Introduction to GenAI</span></li>
+            <li class="cert-item panel"><span class="cert-org">MongoDB</span><span>Introduction to MongoDB for Students</span></li>
+            <li class="cert-item panel"><span class="cert-org">Simplilearn</span><span>Introduction to C++ · DevOps · Java Programming</span></li>
+          </ul>
         </div>
       </div>
     </section>
@@ -649,42 +754,35 @@
     ========================================================= -->
     <section id="contact" aria-labelledby="contact-heading">
       <div class="container">
-        <span class="section-label reveal">06 / Contact</span>
-
-        <div class="contact-inner">
-          <h2 id="contact-heading" class="reveal">Let's build something.</h2>
-          <p class="contact-body reveal">
-            I'm currently open to internships, freelance work, and interesting collaborations. The fastest way to reach me is email — I reply within a day.
+        <div class="contact-panel panel hud reveal">
+          <p class="section-label"><span class="section-idx">07</span>Contact</p>
+          <h2 id="contact-heading" class="contact-title">Let's build <span class="grad">something.</span></h2>
+          <p class="contact-body">
+            I'm open to AI/ML research and engineering internships, freelance work, and interesting collaborations. The fastest way to reach me is email — I reply within a day.
           </p>
-          <a
-            href="mailto:prathameshshinde1224@gmail.com"
-            class="btn-email reveal"
-            aria-label="Send email to Prathamesh Shinde"
-          >
-            prathameshshinde1224@gmail.com →
-          </a>
-          <div class="contact-links reveal">
-            <a
-              href="https://www.linkedin.com/in/prathamesh-shinde-204055264"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="contact-link"
-              aria-label="LinkedIn profile (opens in new tab)"
-            >LinkedIn ↗</a>
-            <span class="contact-sep" aria-hidden="true">·</span>
-            <a
-              href="https://github.com/PrathameshShinde24"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="contact-link"
-              aria-label="GitHub profile (opens in new tab)"
-            >GitHub ↗</a>
-            <span class="contact-sep" aria-hidden="true">·</span>
-            <a
-              href="tel:+919665688400"
-              class="contact-link"
-              aria-label="Call +91 96656 88400"
-            >+91 96656 88400</a>
+
+          <div class="contact-actions">
+            <a href="mailto:prathameshshinde1224@gmail.com" class="btn btn-primary btn-lg">
+              <svg aria-hidden="true"><use href="#i-mail"/></svg>prathameshshinde1224@gmail.com
+            </a>
+            <button type="button" class="btn btn-ghost btn-lg" id="btn-copy" data-copy="prathameshshinde1224@gmail.com">
+              <svg aria-hidden="true"><use href="#i-copy"/></svg><span class="copy-label">Copy email</span>
+            </button>
+          </div>
+
+          <div class="contact-links">
+            <a href="https://www.linkedin.com/in/prathamesh-shinde-204055264" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn
+            </a>
+            <a href="https://github.com/PrathameshShinde24" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <svg aria-hidden="true"><use href="#i-github"/></svg>GitHub
+            </a>
+            <a href="tel:+919665688400" class="contact-link">
+              <svg aria-hidden="true"><use href="#i-phone"/></svg>+91 96656 88400
+            </a>
+            <a href="Prathamesh_Shinde_CV.pdf" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <svg aria-hidden="true"><use href="#i-doc"/></svg>CV (PDF)
+            </a>
           </div>
         </div>
       </div>
@@ -692,27 +790,17 @@
 
   </main>
 
-  <!-- =========================================================
-       FOOTER
-  ========================================================= -->
-  <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer">
     <div class="container footer-inner">
       <span>© 2026 Prathamesh Shinde</span>
-      <span>Built with HTML, CSS, and care.</span>
+      <span class="footer-status"><span class="live-dot"></span>All systems nominal · IST <span data-clock>--:--:--</span></span>
+      <span>Built with HTML, CSS &amp; JS</span>
     </div>
   </footer>
 
-  <!-- Back to top -->
   <button id="btn-top" class="btn-top" aria-label="Back to top" type="button">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <line x1="12" y1="19" x2="12" y2="5"/>
-      <polyline points="5 12 12 5 19 12"/>
-    </svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
-
-  <!-- Custom cursor -->
-  <div class="cursor-dot"  aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
 
   <script src="script.js"></script>
 </body>
