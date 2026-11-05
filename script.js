@@ -90,9 +90,15 @@
   ------------------------------------------------------------------ */
   var bgGlow = document.querySelector('.bg-glow');
   if (bgGlow && finePointer && !reduceMotion) {
+    var gx = 0, gy = 0, glowQueued = false;
     document.addEventListener('mousemove', function (e) {
-      bgGlow.style.setProperty('--gx', e.clientX + 'px');
-      bgGlow.style.setProperty('--gy', e.clientY + 'px');
+      gx = e.clientX; gy = e.clientY;
+      if (glowQueued) return;
+      glowQueued = true;
+      requestAnimationFrame(function () {
+        bgGlow.style.transform = 'translate3d(' + gx + 'px,' + gy + 'px,0)';
+        glowQueued = false;
+      });
     }, { passive: true });
   }
 
