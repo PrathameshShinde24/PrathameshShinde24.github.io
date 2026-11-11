@@ -490,6 +490,7 @@
     var nextLabel = $('[data-case-next] b', dialog);
     var current = -1;
     var closeTimer;
+    var opener = null;                      // the card button that opened the dialog
 
     if (!scroller || !cases.length) return;
 
@@ -559,6 +560,9 @@
       else dialog.setAttribute('open', '');
       document.body.style.overflow = 'hidden';
       scroller.scrollTop = 0;
+      // Start in the reading area: arrow keys and Space scroll straight away,
+      // and Safari does not draw a focus ring around the first button
+      try { scroller.focus({ preventScroll: true }); } catch (e) { scroller.focus(); }
     }
 
     function cleanUp() {
@@ -574,6 +578,14 @@
         if (typeof dialog.close === 'function') dialog.close();
         else dialog.removeAttribute('open');
         cleanUp();
+        // Hand the keyboard back to the button that opened the case study
+        // (Safari does not do this by itself after a mouse click)
+        var back = opener;
+        opener = null;
+        var active = document.activeElement;
+        if (back && document.body.contains(back) && (!active || active === document.body || dialog.contains(active))) {
+          try { back.focus({ preventScroll: true }); } catch (e) {}
+        }
       }
       clearTimeout(closeTimer);
       if (instant || reduceMotion) { finish(); return; }
@@ -613,6 +625,7 @@
       var i = indexOfName(t.getAttribute('data-case-open'));
       if (i < 0) return;
       e.preventDefault();
+      opener = t;
       setHash(nameOf(i), true);
       open(i);
     });
@@ -631,6 +644,7 @@
       if (!target) return;
       e.preventDefault();
       try { window.history.replaceState(null, '', href); } catch (err) {}
+      opener = null;                        // we are leaving for another section
       hide(true);
       target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
     });

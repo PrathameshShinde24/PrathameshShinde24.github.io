@@ -1499,11 +1499,18 @@ section { position: relative; padding: var(--section-py) 0; }
   color: var(--muted);
 }
 @media (max-width: 620px) {
-  .flow { grid-auto-flow: row; gap: 1.3rem; }
+  /* Phone: steps stack, each one a single compact row */
+  .flow { grid-auto-flow: row; gap: 1.15rem; }
+  .flow li {
+    grid-template-columns: auto auto minmax(0, 1fr);
+    align-items: baseline; column-gap: 0.55rem;
+    padding: 0.6rem 0.8rem;
+  }
+  .flow li small { text-align: right; }
   .flow li + li::before {
     content: '↓';
-    left: 0; right: 0; top: -1.3rem;
-    width: auto; height: 1.3rem; line-height: 1.3rem;
+    left: 0; right: 0; top: -1.15rem;
+    width: auto; height: 1.15rem; line-height: 1.15rem;
     transform: none;
   }
 }
